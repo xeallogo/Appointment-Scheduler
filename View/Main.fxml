@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+* Program: MainView.fxml
+* Author: Alex Gool
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+    <children>
+        <TabPane fx:id="tabpane" prefWidth="1080.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Appointment">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="427.0">
+                            <children>
+                                <GridPane prefHeight="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="-Infinity" prefHeight="10.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Appointment Table" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.valignment="BOTTOM">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="addAppointmentBTN" mnemonicParsing="false" onAction="#addAppointmentBTNOA" text="Add Appointment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button fx:id="ModifyAppointmentBTN" mnemonicParsing="false" onAction="#ModifyAppointmentBTNOA" text="Edit Appointment" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <Button mnemonicParsing="false" onAction="#deleteAppointmentBTNOA" text="Delete Appointment" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                            <GridPane.margin>
+                                                <Insets top="20.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <RadioButton mnemonicParsing="false" onAction="#allRBTNOA" selected="true" text="All" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="calendar_group" />
+                                            </toggleGroup>
+                                        </RadioButton>
+                                        <RadioButton mnemonicParsing="false" onAction="#monthRBTNOA" text="Month" toggleGroup="$calendar_group" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                        <RadioButton mnemonicParsing="false" onAction="#weekRBTNOA" text="Week" toggleGroup="$calendar_group" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                        <TableView fx:id="appointmentTV" prefHeight="200.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="3" GridPane.rowSpan="3">
+                                            <columns>
+                                                <TableColumn fx:id="ATappointmentIDCOL" prefWidth="100.0" text="Appointment&#10;ID" />
+                                                <TableColumn fx:id="ATtitleCOL" prefWidth="100.0" text="Title" />
+                                                <TableColumn fx:id="ATdescriptionCOL" prefWidth="100.0" text="Description" />
+                                                <TableColumn fx:id="ATlocationCOL" prefWidth="100.0" text="Location" />
+                                                <TableColumn fx:id="ATcontactCOL" prefWidth="120.0" text="Contact" />
+                                                <TableColumn fx:id="ATtypeCOL" prefWidth="100.0" text="Type" />
+                                                <TableColumn fx:id="ATstartCOL" prefWidth="120.0" text="Start Date&#10;and Time" />
+                                                <TableColumn fx:id="ATendCOL" prefWidth="120.0" text="End Date&#10;and Time" />
+                                                <TableColumn fx:id="ATcustomerIDCOL" prefWidth="100.0" text="Customer&#10;ID" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="customerTAB" text="Customer">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane prefHeight="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints prefWidth="140.0" />
+                                        <ColumnConstraints prefWidth="140.0" />
+                                        <ColumnConstraints minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+                                        <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Customer Table" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.valignment="BOTTOM">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="addCustomerBTN" mnemonicParsing="false" onAction="#addCustomerBTNOA" text="Add Customer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button fx:id="ModifyCustomerBTN" mnemonicParsing="false" onAction="#ModifyCustomerBTNOA" text="Edit Customer" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <Button mnemonicParsing="false" onAction="#deleteCustomerBTNOA" text="Delete Customer" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                            <GridPane.margin>
+                                                <Insets top="20.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <TableView fx:id="customerTV" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="3" GridPane.rowSpan="3">
+                                            <columns>
+                                                <TableColumn fx:id="CTcustomerIDCOL" prefWidth="60.0" text="Customer&#10;ID" />
+                                                <TableColumn fx:id="CTnameCOL" prefWidth="110.0" text="Name" />
+                                                <TableColumn fx:id="CTaddressCOL" prefWidth="100.0" text="Address" />
+                                                <TableColumn fx:id="CTpostalCodeCOL" prefWidth="60.0" text="Postal&#10;Code" />
+                                                <TableColumn fx:id="CTphoneCOL" prefWidth="100.0" text="Phone&#10;Number" />
+                                                <TableColumn fx:id="CTcreateDateCOL" prefWidth="120.0" text="Create&#10;Date" />
+                                                <TableColumn fx:id="CTcreatedByCOL" prefWidth="75.0" text="Created&#10;By" />
+                                                <TableColumn fx:id="CTupdateCOL" prefWidth="120.0" text="Last&#10;Update" />
+                                                <TableColumn fx:id="CTupdatedByCOL" prefWidth="75.0" text="Last&#10;Updated By" />
+                                                <TableColumn fx:id="CTdivisionCOL" prefWidth="100.0" text="Division" />
+                                                <TableColumn fx:id="CTcountryIDCOL" prefWidth="60.0" text="Country&#10;ID" />
+
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Reports">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="427.0">
+                            <children>
+                                <GridPane prefHeight="600.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="-Infinity" prefHeight="10.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="NEVER" />
+                                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Reports" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.valignment="BOTTOM">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <RadioButton mnemonicParsing="false" onAction="#reportsMonthRBTNOA" text="Appointment Type By Month" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="reports_group" />
+                                            </toggleGroup></RadioButton>
+                                        <RadioButton mnemonicParsing="false" onAction="#reportsContactRBTNOA" text="Contact Schedules" toggleGroup="$reports_group" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                        <RadioButton mnemonicParsing="false" onAction="#reportsCMTotalRBTNOA" text="Total Appointments For Contact By Month" toggleGroup="$reports_group" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                        </RadioButton>
+                                        <TableView fx:id="reportsTV" prefHeight="200.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="3" GridPane.rowSpan="3" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
